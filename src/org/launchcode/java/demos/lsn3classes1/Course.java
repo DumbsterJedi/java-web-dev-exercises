@@ -1,15 +1,11 @@
 package org.launchcode.java.demos.lsn3classes1;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Course {
-    String className;
-    int difficulty;
-    HashMap<String, Integer> something = new HashMap<>();
+    String topic;
+    String teacher;
+    ArrayList <Student> enrolledStudents;
 
-    Course(String className, int difficulty,HashMap something){
-        this.className= className;
-        this.difficulty = difficulty;
-        this.something = something;
-    }
+
 }

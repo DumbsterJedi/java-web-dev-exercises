@@ -1,6 +1,7 @@
 package exercises.lsn2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayListPractice {
@@ -33,11 +34,11 @@ public class ArrayListPractice {
         someNums.add(i);
                     };
 
-        ArrayList<String> someWords = new ArrayList<>();
-        someWords.add("Taco");
-        someWords.add("Turbo");
-        someWords.add("Bulldog");
-        someWords.add("Donut");
+        ArrayList<String> someWords = new ArrayList<>(Arrays.asList("Taco","Turbo","Bulldog","Donut"));
+//        someWords.add("Taco");
+//        someWords.add("Turbo");
+//        someWords.add("Bulldog");
+//        someWords.add("Donut");
 
         System.out.println(addNums(someNums));
 
