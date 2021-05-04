@@ -1,12 +1,14 @@
 package org.launchcode.java.studios.resturantMenu;
 
+import java.util.Objects;
+
 public class MenuItem {
 
-        String name;
-        String description;
-        String category;
-        double price;
-        boolean isNew;
+        private String name;
+        private String description;
+        private String category;
+        private double price;
+        private boolean isNew;
 
         MenuItem(String name, String description,String category,double price){
             this.name = name;
@@ -54,5 +56,19 @@ public class MenuItem {
     public void isNew(boolean isNew) {
         this.isNew = isNew;
     }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, category, price, isNew);
+    }
+
+    public boolean areItemsEqual(MenuItem o){
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            MenuItem menuItem = (MenuItem) o;
+            return Double.compare(menuItem.price, price) == 0 && isNew == menuItem.isNew && Objects.equals(name, menuItem.name) && Objects.equals(description, menuItem.description) && Objects.equals(category, menuItem.category);
+        }
+
 }
 

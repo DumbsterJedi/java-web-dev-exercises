@@ -30,21 +30,51 @@ public class Student {
 
 
      //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
+    public String getGradeLevel() {
+        if(this.numberOfCredits <= 29){
+            return "Freshman";
+        } else if(this.numberOfCredits >= 30 && this.numberOfCredits <=59){
+            return "Sophomore";
+        } else if (this.numberOfCredits >= 60 && this.numberOfCredits <=89){
+            return "Junior";
+        } else {return "Senior";}
 //        // Determine the grade level of the student based on numberOfCredits
-//    }
+    }
 
     // TODO: Complete the addGrade method.
-    public void addGrade(int courseCredits, double grade) {
-        // Update the appropriate fields: numberOfCredits, gpa
-    }
+    public void addGrade(int numOfCourseCredits, double grade) {
+            double totalQualityScore = this.gpa * this.numberOfCredits;
+            totalQualityScore += grade * numOfCourseCredits;
+            this.numberOfCredits += numOfCourseCredits;
+            this.gpa = totalQualityScore/this.numberOfCredits;
+
+        }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
-
+    @Override
+    public String toString(){
+        String studentReport = this.name + " is a " + this.getGradeLevel();
+        return studentReport;
+    }
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+    @Override
+    public boolean equals(Object toCompare){
+    if(toCompare == this){
+        return true;
+    }
+    if(toCompare == null){
+        return false;
+    }
+    if(toCompare.getClass() != getClass()){
+        return false;
+    }
+    Student theStudent = (Student) toCompare;
+    return theStudent.getStudentId() == this.getStudentId();
+    }
 
+//getters and setters
     public String getName() {
         return name;
     }
@@ -79,11 +109,19 @@ public class Student {
 
     public static void main(String[] args) {
         Student sally = new Student("Sally",1,1,4.0);
+        Student sally2 = new Student("Sally",1,1,4.0);
         System.out.println("The Student class works! " + sally.getName() + " is a student!");
         System.out.println(sally);
+        System.out.println(sally.getNumberOfCredits());
+        System.out.println(sally.getGradeLevel());
         sally.addGrade(12, 3.5);
         System.out.println(sally);
         sally.addGrade(25, 3.8);
-        System.out.println(sally);
+        System.out.println(sally.toString());
+        System.out.println(sally.getNumberOfCredits());
+        System.out.println(sally.getGradeLevel());
+        System.out.println(sally.getGpa());
+        System.out.println(sally.equals(sally2));
+
     }
 }
