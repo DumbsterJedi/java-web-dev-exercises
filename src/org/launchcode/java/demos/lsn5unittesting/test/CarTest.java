@@ -11,7 +11,7 @@ public class CarTest {
 
     @Before
     public void createCarObject(){
-        test_car = new Car("Nissan","Silvia",10,50);
+        test_car = new Car("Nissan","S15",10,50);
     }
 
     //TODO: add emptyTest so we can configure our runtime environment (remove this test before pushing to your personal GitLab account)
